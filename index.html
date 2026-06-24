@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>首尔三天两晚 TWICE 演唱会旅行攻略</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5d6b78;
+      --line: #d9e1e8;
+      --paper: #f7f4ef;
+      --panel: #ffffff;
+      --teal: #0b6b6d;
+      --coral: #db5a4a;
+      --gold: #d4a72c;
+      --navy: #13283a;
+      --green: #2f7d58;
+      --shadow: 0 18px 50px rgba(19, 40, 58, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #13283a;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(13, 27, 38, 0.82), rgba(13, 27, 38, 0.42) 48%, rgba(13, 27, 38, 0.2)),
+        linear-gradient(0deg, rgba(19, 40, 58, 0.78), rgba(19, 40, 58, 0.04) 45%),
+        url("seoul-hero.png") center / cover;
+      z-index: -1;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 84px 0 48px;
+      color: #fff;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      font-size: 14px;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 18px 0 14px;
+      font-size: clamp(38px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(16px, 2.2vw, 22px);
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      min-height: 42px;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 15px;
+      color: #fff;
+      background: var(--teal);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+      box-shadow: 0 10px 24px rgba(11, 107, 109, 0.24);
+    }
+
+    .btn:hover { transform: translateY(-1px); background: #095b5d; }
+    .btn.secondary { color: var(--ink); background: #fff; box-shadow: none; }
+    .btn.secondary:hover { background: #edf3f5; }
+    .btn.warn { background: var(--coral); box-shadow: 0 10px 24px rgba(219, 90, 74, 0.22); }
+    .btn.warn:hover { background: #c84738; }
+    .btn.ghost { color: var(--ink); border: 1px solid var(--line); background: transparent; box-shadow: none; }
+    .btn.ghost:hover { background: #edf3f5; }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid rgba(23, 33, 43, 0.1);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      min-height: 130px;
+      border-radius: 8px;
+      padding: 18px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .metric span { color: var(--muted); font-size: 14px; }
+
+    .route-band {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .route-map {
+      min-height: 360px;
+      border-radius: 8px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(219, 90, 74, 0.14), transparent 28%),
+        radial-gradient(circle at 78% 70%, rgba(11, 107, 109, 0.16), transparent 30%),
+        #ffffff;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .route-line {
+      display: grid;
+      gap: 18px;
+      margin-top: 12px;
+    }
+
+    .stop {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .pin {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--teal);
+      font-weight: 700;
+    }
+
+    .stop:nth-child(2) .pin { background: var(--coral); }
+    .stop:nth-child(3) .pin { background: var(--gold); color: #1e2b34; }
+    .stop:nth-child(4) .pin { background: var(--navy); }
+
+    .stop h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .stop p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tips {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tip {
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .tip strong { display: block; margin-bottom: 6px; }
+    .tip p { margin: 0; color: var(--muted); }
+
+    .planner-shell {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .form-panel {
+      position: sticky;
+      top: 16px;
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .form-panel h3 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 11px;
+      color: var(--ink);
+      background: #fbfcfd;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 76px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(11, 107, 109, 0.12);
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .form-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .day-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      min-height: 38px;
+      padding: 8px 13px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      color: #fff;
+      border-color: var(--teal);
+      background: var(--teal);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 104px 1fr auto;
+      gap: 16px;
+      align-items: start;
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(19, 40, 58, 0.09);
+    }
+
+    .time {
+      min-width: 0;
+      color: var(--teal);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .content h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 3px 9px;
+      color: #1f3b3d;
+      background: #e4f2f1;
+      font-weight: 700;
+    }
+
+    .tag.fixed { color: #673026; background: #f7ddd8; }
+    .content p { margin: 0; color: var(--muted); }
+
+    .item-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    .icon-btn:hover { background: #edf3f5; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .place {
+      min-height: 230px;
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(19, 40, 58, 0.09);
+    }
+
+    .place h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .place p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .place a {
+      display: inline-flex;
+      color: var(--teal);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .checklist strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 44px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer a { color: var(--teal); }
+
+    @media (max-width: 900px) {
+      .summary-grid, .cards, .checklist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .route-band, .planner-shell { grid-template-columns: 1fr; }
+      .form-panel { position: static; }
+      .item { grid-template-columns: 88px 1fr; }
+      .item-actions { grid-column: 2; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 72vh; }
+      .hero-inner { padding-bottom: 34px; }
+      .section-head { display: block; }
+      .summary-grid, .cards, .checklist { grid-template-columns: 1fr; }
+      .two-cols, .form-actions { grid-template-columns: 1fr; }
+      .item { grid-template-columns: 1fr; gap: 8px; }
+      .time { font-size: 16px; }
+      .item-actions { grid-column: auto; }
+      .route-map { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="kicker">2026.7.11 周六 至 7.13 周一 · 深圳往返首尔</div>
+      <h1>首尔三天两晚演唱会旅行攻略</h1>
+      <p>以 KSPO Dome 两场 TWICE 演唱会为硬时间点，围绕新堂/东大门民宿、Olive Young 购物和轻量市区游，尽量少折返、少冒险、留足入场缓冲。</p>
+      <div class="hero-actions">
+        <a class="btn" href="#planner">编辑行程</a>
+        <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=35-3%20Toegye-ro%2087-gil%2C%20Seoul" target="_blank" rel="noreferrer">民宿地图</a>
+        <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=KSPO%20Dome%20Seoul" target="_blank" rel="noreferrer">KSPO 地图</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="overview-title">
+      <div class="section-head">
+        <div>
+          <h2 id="overview-title">核心判断</h2>
+          <p class="lead">落地和返程机场已确认为仁川国际机场 T1，机场铁路动线可固定按 ICN T1 规划。</p>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="metric">
+          <strong>住址优势</strong>
+          <span>35-3 Toegye-ro 87-gil 距新堂站步行 2 分钟，去 KSPO Dome 可用 5 号线串联。</span>
+        </div>
+        <div class="metric">
+          <strong>7.11 重点</strong>
+          <span>飞机 13:40 到后不安排景点，先入境、到民宿、出发去场馆，避免第一晚迟到。</span>
+        </div>
+        <div class="metric">
+          <strong>7.12 重点</strong>
+          <span>把 Olive Young 和明洞放在中午，购物后回民宿放战利品，再去第二场。</span>
+        </div>
+        <div class="metric">
+          <strong>7.13 重点</strong>
+          <span>14:50 国际航班返程，11:50 到机场，上午只做轻量咖啡和收拾。</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="route-title">
+      <div class="section-head">
+        <div>
+          <h2 id="route-title">交通动线</h2>
+          <p class="lead">整趟旅行的关键是把 5 号线用起来：仁川机场到孔德换 5 号线，民宿从新堂站步行 2 分钟，到 KSPO Dome 也能走 5 号线方向。</p>
+        </div>
+      </div>
+      <div class="route-band">
+        <div class="route-map" aria-label="行程交通动线">
+          <div class="route-line">
+            <div class="stop">
+              <div class="pin">1</div>
+              <div>
+                <h3>仁川机场 T1</h3>
+                <p>入境、取行李、换钱/取现、买交通卡。预计 60-90 分钟。</p>
+              </div>
+            </div>
+            <div class="stop">
+              <div class="pin">2</div>
+              <div>
+                <h3>孔德站换 5 号线</h3>
+                <p>AREX 普通列车到孔德，再转 5 号线到新堂站，出站步行 2 分钟到民宿。</p>
+              </div>
+            </div>
+            <div class="stop">
+              <div class="pin">3</div>
+              <div>
+                <h3>35-3 Toegye-ro 87-gil</h3>
+                <p>入住、放行李、补妆补电。民宿距新堂站步行 2 分钟，出发换乘方便。</p>
+              </div>
+            </div>
+            <div class="stop">
+              <div class="pin">4</div>
+              <div>
+                <h3>KSPO Dome</h3>
+                <p>至少提前 60 分钟到奥林匹克公园区域，留出安检、取物和拍照时间。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tips">
+          <div class="tip">
+            <strong>演唱会出发原则</strong>
+            <p>7.11 建议 16:50 前从民宿出发；7.12 建议 15:50-16:00 出发。周边、检票、拍照都会吃时间。</p>
+          </div>
+          <div class="tip">
+            <strong>购物原则</strong>
+            <p>Olive Young 选择明洞大店，店面大、品牌全，退税和外语服务更集中。买完先回民宿，别背着购物袋进场。</p>
+          </div>
+          <div class="tip">
+            <strong>返程原则</strong>
+            <p>7.13 10:20 离开民宿，现场退税、托运行李和机场购物都放进机场时段处理。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="planner" aria-labelledby="planner-title">
+      <div class="section-head">
+        <div>
+          <h2 id="planner-title">可编辑行程表</h2>
+          <p class="lead">下面是已安排好的默认行程。你可以新增、编辑或删除自己的行程；修改会保存在当前浏览器，不会影响原始文件。</p>
+        </div>
+      </div>
+      <div class="planner-shell">
+        <form class="form-panel" id="planForm">
+          <h3 id="formTitle">新增行程</h3>
+          <input type="hidden" id="itemId">
+          <div class="field">
+            <label for="day">日期</label>
+            <select id="day" required>
+              <option value="7.11">7.11 周六</option>
+              <option value="7.12">7.12 周日</option>
+              <option value="7.13">7.13 周一</option>
+            </select>
+          </div>
+          <div class="two-cols">
+            <div class="field">
+              <label for="start">开始</label>
+              <input id="start" type="time" required>
+            </div>
+            <div class="field">
+              <label for="end">结束</label>
+              <input id="end" type="time">
+            </div>
+          </div>
+          <div class="field">
+            <label for="category">类型</label>
+            <select id="category" required>
+              <option>交通</option>
+              <option>演唱会</option>
+              <option>购物</option>
+              <option>景点</option>
+              <option>餐饮</option>
+              <option>休息</option>
+              <option>自定义</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="title">标题</label>
+            <input id="title" placeholder="例如：明洞 Olive Young 补货" required>
+          </div>
+          <div class="field">
+            <label for="place">地点</label>
+            <input id="place" placeholder="例如：明洞 / KSPO Dome / 民宿">
+          </div>
+          <div class="field">
+            <label for="route">路线</label>
+            <input id="route" placeholder="例如：地铁 5 号线，45 分钟">
+          </div>
+          <div class="field">
+            <label for="note">备注</label>
+            <textarea id="note" placeholder="门票、退税、预约、想买清单等"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn" type="submit">保存</button>
+            <button class="btn ghost" type="button" id="clearForm">清空</button>
+          </div>
+          <button class="btn warn" type="button" id="resetPlan" style="width: 100%; margin-top: 10px;">恢复默认行程</button>
+        </form>
+
+        <div>
+          <div class="day-tabs" id="dayTabs" aria-label="日期筛选"></div>
+          <div class="timeline" id="timeline"></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="places-title">
+      <div class="section-head">
+        <div>
+          <h2 id="places-title">建议地点</h2>
+          <p class="lead">这些点位和你的住处、演唱会动线比较顺，适合三天两晚短行程。</p>
+        </div>
+      </div>
+      <div class="cards">
+        <article class="place">
+          <h3>Olive Young 明洞 Town</h3>
+          <p>作为主购物点安排在 7.12 中午。建议先列购买清单：防晒、面膜、护唇、底妆、小样套装，付款前确认即时退税。</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Olive%20Young%20Myeongdong%20Town%20Seoul" target="_blank" rel="noreferrer">打开地图</a>
+        </article>
+        <article class="place">
+          <h3>东大门 DDP</h3>
+          <p>离民宿近，适合 7.12 早上轻量散步拍照，也适合 7.11 演唱会后回住处附近吃夜宵。</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Dongdaemun%20Design%20Plaza%20Seoul" target="_blank" rel="noreferrer">打开地图</a>
+        </article>
+        <article class="place">
+          <h3>明洞与南山</h3>
+          <p>7.12 购物后在明洞吃午饭，南山只作为轻量加餐；排队或购物超时时，直接回民宿休息。</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=N%20Seoul%20Tower" target="_blank" rel="noreferrer">打开地图</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="prep-title">
+      <div class="section-head">
+        <div>
+          <h2 id="prep-title">出发前检查</h2>
+          <p class="lead">演唱会行程最怕临时变量，下面几项建议在出发前一天确认。</p>
+        </div>
+      </div>
+      <ul class="checklist">
+        <li><strong>确认航站楼细节</strong>页面已按仁川机场 T1 规划；出发前再核对柜台、登机口和托运行李截止时间。</li>
+        <li><strong>确认演唱会入场规则</strong>票务实名、取票窗口、可带包尺寸、充电宝和相机规则都要提前看。</li>
+        <li><strong>准备交通工具</strong>T-money 或 WOWPASS、Naver Map/KakaoMap、民宿韩文地址截图。</li>
+        <li><strong>购物清单</strong>Olive Young 先列品牌和品类，热门色号容易断货，别把购物时间拖到演唱会前最后一刻。</li>
+        <li><strong>现金和退税</strong>准备少量韩元现金，购物付款前问是否支持即时退税。</li>
+        <li><strong>返程留余量</strong>7.13 中午前到机场，避免退税、安检和托运行李排队影响返程。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>信息参考：<a href="https://en.wikipedia.org/wiki/Olympic_Gymnastics_Arena" target="_blank" rel="noreferrer">KSPO Dome / Olympic Gymnastics Arena</a>、<a href="https://en.wikipedia.org/wiki/Olympic_Park_station_(Seoul)" target="_blank" rel="noreferrer">Olympic Park Station</a>、<a href="https://en.wikipedia.org/wiki/AREX" target="_blank" rel="noreferrer">AREX 机场铁路</a>、<a href="https://www.ddp.or.kr/" target="_blank" rel="noreferrer">DDP 官方网站</a>。实际营业时间、交通耗时、演唱会入场规则请以出发前 Naver Map、KakaoMap 和票务方通知为准。</p>
+  </footer>
+
+  <script>
+    const storageKey = "seoul-twice-itinerary-v1";
+    const days = [
+      { key: "all", label: "全部" },
+      { key: "7.11", label: "7.11 周六" },
+      { key: "7.12", label: "7.12 周日" },
+      { key: "7.13", label: "7.13 周一" }
+    ];
+
+    const defaultItems = [
+      {
+        id: "fixed-711-flight",
+        day: "7.11",
+        start: "08:40",
+        end: "13:40",
+        category: "交通",
+        title: "深圳飞首尔",
+        place: "深圳机场 → 仁川机场 T1",
+        route: "航班已定。落地航站楼按仁川机场 T1 处理。",
+        note: "落地后先入境、取行李、买交通卡或取现。不要安排景点。",
+        fixed: true
+      },
+      {
+        id: "fixed-711-arrive",
+        day: "7.11",
+        start: "13:40",
+        end: "15:10",
+        category: "交通",
+        title: "入境与出机场",
+        place: "仁川机场 T1",
+        route: "入境、取行李、交通卡、通信检查。",
+        note: "入境排队占用的时间从民宿休整段压缩，不压缩去场馆时间。",
+        fixed: false
+      },
+      {
+        id: "fixed-711-home",
+        day: "7.11",
+        start: "15:10",
+        end: "16:35",
+        category: "交通",
+        title: "前往民宿并放行李",
+        place: "35-3 Toegye-ro 87-gil",
+        route: "仁川机场 T1 乘 AREX 到孔德，换 5 号线到新堂站，出站步行 2 分钟到民宿。",
+        note: "抵达后只做必要整理：证件、门票、充电宝、水、轻便包。",
+        fixed: false
+      },
+      {
+        id: "fixed-711-kspo",
+        day: "7.11",
+        start: "16:50",
+        end: "18:00",
+        category: "演唱会",
+        title: "前往 KSPO Dome",
+        place: "Olympic Park / KSPO Dome",
+        route: "建议地铁 5 号线方向，预估 45-60 分钟含步行。",
+        note: "目标 18:00 到场。想拍照或买周边，尽量 16:30-16:40 出门。",
+        fixed: true
+      },
+      {
+        id: "fixed-711-concert",
+        day: "7.11",
+        start: "18:00",
+        end: "22:00",
+        category: "演唱会",
+        title: "TWICE 演唱会第一场",
+        place: "KSPO Dome",
+        route: "入场后先确认座位、洗手间和散场出口。",
+        note: "散场后人流大，按现场指引进站；不赶时间可以在奥林匹克公园周边缓一缓。",
+        fixed: true
+      },
+      {
+        id: "fixed-711-night",
+        day: "7.11",
+        start: "22:20",
+        end: "23:40",
+        category: "餐饮",
+        title: "回东大门附近夜宵",
+        place: "东大门 / 新堂",
+        route: "地铁或打车回民宿附近。",
+        note: "第一天已很满，夜宵以便利店、汤饭、炸鸡或民宿附近小店为主。",
+        fixed: false
+      },
+      {
+        id: "fixed-712-ddp",
+        day: "7.12",
+        start: "09:30",
+        end: "11:00",
+        category: "景点",
+        title: "东大门 DDP 轻量散步",
+        place: "Dongdaemun Design Plaza",
+        route: "从民宿步行或短途地铁。",
+        note: "不赶早，给前一晚恢复体力。天气热的话只拍外观和咖啡。",
+        fixed: false
+      },
+      {
+        id: "fixed-712-myeongdong",
+        day: "7.12",
+        start: "11:20",
+        end: "13:40",
+        category: "购物",
+        title: "Olive Young 明洞集中购物",
+        place: "明洞 Olive Young 大店",
+        route: "东大门历史文化公园站转 4 号线到明洞，或直接打车。",
+        note: "先买刚需和热门品，再逛补充品。付款前确认即时退税和护照要求。",
+        fixed: true
+      },
+      {
+        id: "fixed-712-lunch",
+        day: "7.12",
+        start: "13:40",
+        end: "14:40",
+        category: "餐饮",
+        title: "明洞午餐",
+        place: "明洞 / 乙支路入口",
+        route: "购物点附近步行。",
+        note: "选冷面、参鸡汤、韩式简餐都行，避免太撑影响晚场。",
+        fixed: false
+      },
+      {
+        id: "fixed-712-rest",
+        day: "7.12",
+        start: "15:00",
+        end: "15:45",
+        category: "休息",
+        title: "回民宿放购物袋并整理",
+        place: "35-3 Toegye-ro 87-gil",
+        route: "明洞回新堂站，出站步行 2 分钟到民宿。",
+        note: "换轻便包，带票、证件、充电宝。若明洞超时，跳过南山，直接回民宿。",
+        fixed: true
+      },
+      {
+        id: "fixed-712-kspo",
+        day: "7.12",
+        start: "15:55",
+        end: "17:00",
+        category: "演唱会",
+        title: "前往 KSPO Dome",
+        place: "Olympic Park / KSPO Dome",
+        route: "地铁 5 号线优先，目标 17:00 到场。",
+        note: "第二场人流同样大，建议提前到场拍照、吃点轻食、排洗手间。",
+        fixed: true
+      },
+      {
+        id: "fixed-712-concert",
+        day: "7.12",
+        start: "17:00",
+        end: "21:00",
+        category: "演唱会",
+        title: "TWICE 演唱会第二场",
+        place: "KSPO Dome",
+        route: "按票面和现场指引入场。",
+        note: "散场后可以直接回民宿休息，第二天要赶返程。",
+        fixed: true
+      },
+      {
+        id: "fixed-713-morning",
+        day: "7.13",
+        start: "08:30",
+        end: "09:40",
+        category: "餐饮",
+        title: "民宿附近早餐与收尾",
+        place: "新堂 / 东大门附近",
+        route: "步行范围内解决。",
+        note: "不要安排远景点。检查护照、钱包、购物品、退税单和充电线。",
+        fixed: false
+      },
+      {
+        id: "fixed-713-checkout",
+        day: "7.13",
+        start: "09:40",
+        end: "10:20",
+        category: "休息",
+        title: "退房与前往机场准备",
+        place: "35-3 Toegye-ro 87-gil",
+        route: "确认垃圾、钥匙、行李重量。",
+        note: "退房后直接带行李去机场，不再折返市区。",
+        fixed: false
+      },
+      {
+        id: "fixed-713-airport",
+        day: "7.13",
+        start: "10:20",
+        end: "11:50",
+        category: "交通",
+        title: "前往仁川机场 T1",
+        place: "民宿 → 机场",
+        route: "走 5 号线到孔德换 AREX，或打车到首尔站/孔德再乘机场铁路。",
+        note: "国际航班建议至少提前 3 小时到机场；要退税和购物就更早。",
+        fixed: true
+      },
+      {
+        id: "fixed-713-return",
+        day: "7.13",
+        start: "14:50",
+        end: "17:45",
+        category: "交通",
+        title: "首尔飞深圳",
+        place: "仁川机场 T1 → 深圳机场",
+        route: "航班已定。",
+        note: "到机场后先托运和安检，再处理免税店与餐食。",
+        fixed: true
+      }
+    ];
+
+    let items = loadItems();
+    let activeDay = "all";
+
+    const form = document.querySelector("#planForm");
+    const formTitle = document.querySelector("#formTitle");
+    const timeline = document.querySelector("#timeline");
+    const dayTabs = document.querySelector("#dayTabs");
+    const clearFormButton = document.querySelector("#clearForm");
+    const resetPlanButton = document.querySelector("#resetPlan");
+
+    function loadItems() {
+      const saved = localStorage.getItem(storageKey);
+      if (!saved) return [...defaultItems];
+      try {
+        const parsed = JSON.parse(saved);
+        return Array.isArray(parsed) ? parsed : [...defaultItems];
+      } catch {
+        return [...defaultItems];
+      }
+    }
+
+    function saveItems() {
+      localStorage.setItem(storageKey, JSON.stringify(items));
+    }
+
+    function sortItems(list) {
+      return [...list].sort((a, b) => {
+        const dayCompare = a.day.localeCompare(b.day, "zh-CN");
+        if (dayCompare !== 0) return dayCompare;
+        return a.start.localeCompare(b.start);
+      });
+    }
+
+    function renderTabs() {
+      dayTabs.innerHTML = "";
+      days.forEach(day => {
+        const button = document.createElement("button");
+        button.className = `tab${activeDay === day.key ? " active" : ""}`;
+        button.type = "button";
+        button.textContent = day.label;
+        button.addEventListener("click", () => {
+          activeDay = day.key;
+          render();
+        });
+        dayTabs.appendChild(button);
+      });
+    }
+
+    function renderTimeline() {
+      const visible = sortItems(items).filter(item => activeDay === "all" || item.day === activeDay);
+      timeline.innerHTML = "";
+      if (visible.length === 0) {
+        const empty = document.createElement("article");
+        empty.className = "item";
+        empty.innerHTML = '<div class="time">暂无</div><div class="content"><h3>这一天还没有安排</h3><p>用左侧表单添加自己的行程。</p></div>';
+        timeline.appendChild(empty);
+        return;
+      }
+
+      visible.forEach(item => {
+        const article = document.createElement("article");
+        article.className = "item";
+        article.innerHTML = `
+          <div class="time">${item.start}${item.end ? `<br><span style="font-size:13px;color:var(--muted);font-weight:700;">至 ${item.end}</span>` : ""}</div>
+          <div class="content">
+            <h3>${escapeHtml(item.title)}</h3>
+            <div class="meta">
+              <span class="tag ${item.fixed ? "fixed" : ""}">${item.fixed ? "既定" : escapeHtml(item.category)}</span>
+              <span>${escapeHtml(item.day)}</span>
+              ${item.place ? `<span>${escapeHtml(item.place)}</span>` : ""}
+            </div>
+            ${item.route ? `<p><strong>路线：</strong>${escapeHtml(item.route)}</p>` : ""}
+            ${item.note ? `<p><strong>备注：</strong>${escapeHtml(item.note)}</p>` : ""}
+          </div>
+          <div class="item-actions">
+            <button class="icon-btn" type="button" title="编辑" aria-label="编辑 ${escapeHtml(item.title)}" data-edit="${item.id}">改</button>
+            <button class="icon-btn" type="button" title="删除" aria-label="删除 ${escapeHtml(item.title)}" data-delete="${item.id}">删</button>
+          </div>
+        `;
+        timeline.appendChild(article);
+      });
+    }
+
+    function render() {
+      renderTabs();
+      renderTimeline();
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function clearForm() {
+      form.reset();
+      document.querySelector("#itemId").value = "";
+      formTitle.textContent = "新增行程";
+      document.querySelector("#day").value = activeDay === "all" ? "7.11" : activeDay;
+      document.querySelector("#start").focus();
+    }
+
+    function fillForm(item) {
+      document.querySelector("#itemId").value = item.id;
+      document.querySelector("#day").value = item.day;
+      document.querySelector("#start").value = item.start;
+      document.querySelector("#end").value = item.end || "";
+      document.querySelector("#category").value = item.category || "自定义";
+      document.querySelector("#title").value = item.title || "";
+      document.querySelector("#place").value = item.place || "";
+      document.querySelector("#route").value = item.route || "";
+      document.querySelector("#note").value = item.note || "";
+      formTitle.textContent = "编辑行程";
+      window.location.hash = "planner";
+    }
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const id = document.querySelector("#itemId").value || `custom-${Date.now()}`;
+      const next = {
+        id,
+        day: document.querySelector("#day").value,
+        start: document.querySelector("#start").value,
+        end: document.querySelector("#end").value,
+        category: document.querySelector("#category").value,
+        title: document.querySelector("#title").value.trim(),
+        place: document.querySelector("#place").value.trim(),
+        route: document.querySelector("#route").value.trim(),
+        note: document.querySelector("#note").value.trim(),
+        fixed: items.find(item => item.id === id)?.fixed || false
+      };
+
+      items = items.some(item => item.id === id)
+        ? items.map(item => item.id === id ? next : item)
+        : [...items, next];
+      activeDay = next.day;
+      saveItems();
+      render();
+      clearForm();
+    });
+
+    timeline.addEventListener("click", event => {
+      const editId = event.target.dataset.edit;
+      const deleteId = event.target.dataset.delete;
+      if (editId) {
+        const item = items.find(entry => entry.id === editId);
+        if (item) fillForm(item);
+      }
+      if (deleteId) {
+        const item = items.find(entry => entry.id === deleteId);
+        if (!item) return;
+        const message = item.fixed
+          ? "这是既定行程，确定要从页面中删除吗？可用恢复默认行程找回。"
+          : "确定删除这条行程吗？";
+        if (confirm(message)) {
+          items = items.filter(entry => entry.id !== deleteId);
+          saveItems();
+          render();
+        }
+      }
+    });
+
+    clearFormButton.addEventListener("click", clearForm);
+
+    resetPlanButton.addEventListener("click", () => {
+      if (confirm("确定恢复默认行程吗？这会清除你在当前浏览器里添加或修改的内容。")) {
+        items = [...defaultItems];
+        activeDay = "all";
+        saveItems();
+        clearForm();
+        render();
+      }
+    });
+
+    clearForm();
+    render();
+  </script>
+</body>
+</html>
