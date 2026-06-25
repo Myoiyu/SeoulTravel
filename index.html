@@ -525,7 +525,7 @@
         </div>
         <div class="metric">
           <strong>7.12 重点</strong>
-          <span>把 Olive Young 和明洞放在中午，购物后回民宿放战利品，再去第二场。</span>
+          <span>上午先去 TWICE 快闪店，再去 Olive Young 和明洞，购物后回民宿放战利品，再去第二场。</span>
         </div>
         <div class="metric">
           <strong>7.13 重点</strong>
@@ -672,7 +672,7 @@
       <div class="cards">
         <article class="place">
           <h3>Olive Young 明洞 Town</h3>
-          <p>作为主购物点安排在 7.12 中午。建议先列购买清单：防晒、面膜、护唇、底妆、小样套装，付款前确认即时退税。</p>
+          <p>作为主购物点安排在 7.12 快闪店之后。建议先列购买清单：防晒、面膜、护唇、底妆、小样套装，付款前确认即时退税。</p>
           <a href="https://www.google.com/maps/search/?api=1&query=Olive%20Young%20Myeongdong%20Town%20Seoul" target="_blank" rel="noreferrer">打开地图</a>
         </article>
         <article class="place">
@@ -711,7 +711,7 @@
   </footer>
 
   <script>
-    const storageKey = "seoul-twice-itinerary-v1";
+    const storageKey = "seoul-twice-itinerary-v2";
     const days = [
       { key: "all", label: "全部" },
       { key: "7.11", label: "7.11 周六" },
@@ -796,7 +796,7 @@
         id: "fixed-712-ddp",
         day: "7.12",
         start: "09:30",
-        end: "11:00",
+        end: "10:20",
         category: "景点",
         title: "东大门 DDP 轻量散步",
         place: "Dongdaemun Design Plaza",
@@ -805,39 +805,51 @@
         fixed: false
       },
       {
+        id: "fixed-712-popup",
+        day: "7.12",
+        start: "11:00",
+        end: "11:50",
+        category: "购物",
+        title: "TWICE 快闪店",
+        place: "首尔特别市 江东区 良才大路 1399",
+        route: "从东大门/新堂方向出发，地铁到江东区后步行前往。",
+        note: "优先买限定周边，控制停留时间，结束后直接转去明洞。",
+        fixed: true
+      },
+      {
         id: "fixed-712-myeongdong",
         day: "7.12",
-        start: "11:20",
-        end: "13:40",
+        start: "12:40",
+        end: "14:00",
         category: "购物",
         title: "Olive Young 明洞集中购物",
         place: "明洞 Olive Young 大店",
-        route: "东大门历史文化公园站转 4 号线到明洞，或直接打车。",
+        route: "从江东区返回明洞，优先地铁，赶时间可打车。",
         note: "先买刚需和热门品，再逛补充品。付款前确认即时退税和护照要求。",
         fixed: true
       },
       {
         id: "fixed-712-lunch",
         day: "7.12",
-        start: "13:40",
-        end: "14:40",
+        start: "14:00",
+        end: "14:35",
         category: "餐饮",
         title: "明洞午餐",
         place: "明洞 / 乙支路入口",
         route: "购物点附近步行。",
-        note: "选冷面、参鸡汤、韩式简餐都行，避免太撑影响晚场。",
+        note: "选冷面、紫菜包饭、韩式简餐这类出餐快的店，避免太撑影响晚场。",
         fixed: false
       },
       {
         id: "fixed-712-rest",
         day: "7.12",
-        start: "15:00",
-        end: "15:45",
+        start: "14:50",
+        end: "15:40",
         category: "休息",
         title: "回民宿放购物袋并整理",
         place: "35-3 Toegye-ro 87-gil",
         route: "明洞回新堂站，出站步行 2 分钟到民宿。",
-        note: "换轻便包，带票、证件、充电宝。若明洞超时，跳过南山，直接回民宿。",
+        note: "换轻便包，带票、证件、充电宝。明洞超时时，直接回民宿。",
         fixed: true
       },
       {
