@@ -251,69 +251,7 @@
     .tip p { margin: 0; color: var(--muted); }
 
     .planner-shell {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .form-panel {
-      position: sticky;
-      top: 16px;
-      border-radius: 8px;
-      padding: 18px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .form-panel h3 {
-      margin: 0 0 14px;
-      font-size: 22px;
-    }
-
-    .field {
-      display: grid;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    label {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 10px 11px;
-      color: var(--ink);
-      background: #fbfcfd;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 76px;
-      resize: vertical;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(11, 107, 109, 0.12);
-    }
-
-    .two-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .form-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
+      display: block;
     }
 
     .day-tabs {
@@ -345,7 +283,7 @@
 
     .item {
       display: grid;
-      grid-template-columns: 104px 1fr auto;
+      grid-template-columns: 104px 1fr;
       gap: 16px;
       align-items: start;
       border-radius: 8px;
@@ -388,25 +326,6 @@
 
     .tag.fixed { color: #673026; background: #f7ddd8; }
     .content p { margin: 0; color: var(--muted); }
-
-    .item-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .icon-btn {
-      width: 38px;
-      height: 38px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      background: #fff;
-      cursor: pointer;
-      color: var(--ink);
-    }
-
-    .icon-btn:hover { background: #edf3f5; }
 
     .cards {
       display: grid;
@@ -473,10 +392,8 @@
 
     @media (max-width: 900px) {
       .summary-grid, .cards, .checklist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .route-band, .planner-shell { grid-template-columns: 1fr; }
-      .form-panel { position: static; }
+      .route-band { grid-template-columns: 1fr; }
       .item { grid-template-columns: 88px 1fr; }
-      .item-actions { grid-column: 2; }
     }
 
     @media (max-width: 640px) {
@@ -484,10 +401,8 @@
       .hero-inner { padding-bottom: 34px; }
       .section-head { display: block; }
       .summary-grid, .cards, .checklist { grid-template-columns: 1fr; }
-      .two-cols, .form-actions { grid-template-columns: 1fr; }
       .item { grid-template-columns: 1fr; gap: 8px; }
       .time { font-size: 16px; }
-      .item-actions { grid-column: auto; }
       .route-map { min-height: 0; }
     }
   </style>
@@ -499,7 +414,7 @@
       <h1>首尔三天两晚演唱会旅行攻略</h1>
       <p>以 KSPO Dome 两场 TWICE 演唱会为硬时间点：7.11 15:10 前坐上 AREX 普通车，回民宿放行李后赶 18:00 开场；7.12 上午明洞购物，15:30 前到奥林匹克公园；7.13 10:00 离开民宿去机场。</p>
       <div class="hero-actions">
-        <a class="btn" href="#planner">编辑行程</a>
+        <a class="btn" href="#planner">查看行程</a>
         <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=35-3%20Toegye-ro%2087-gil%2C%20Seoul" target="_blank" rel="noreferrer">民宿地图</a>
         <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=KSPO%20Dome%20Seoul" target="_blank" rel="noreferrer">KSPO 地图</a>
       </div>
@@ -594,71 +509,13 @@
     <section id="planner" aria-labelledby="planner-title">
       <div class="section-head">
         <div>
-          <h2 id="planner-title">可编辑行程表</h2>
-          <p class="lead">下面是已安排好的默认行程。你可以新增、编辑或删除自己的行程；修改会保存在当前浏览器，不会影响原始文件。</p>
+          <h2 id="planner-title">行程表</h2>
+          <p class="lead">下面是按当前方案排好的三天两晚行程，按日期查看即可。</p>
         </div>
       </div>
       <div class="planner-shell">
-        <form class="form-panel" id="planForm">
-          <h3 id="formTitle">新增行程</h3>
-          <input type="hidden" id="itemId">
-          <div class="field">
-            <label for="day">日期</label>
-            <select id="day" required>
-              <option value="7.11">7.11 周六</option>
-              <option value="7.12">7.12 周日</option>
-              <option value="7.13">7.13 周一</option>
-            </select>
-          </div>
-          <div class="two-cols">
-            <div class="field">
-              <label for="start">开始</label>
-              <input id="start" type="time" required>
-            </div>
-            <div class="field">
-              <label for="end">结束</label>
-              <input id="end" type="time">
-            </div>
-          </div>
-          <div class="field">
-            <label for="category">类型</label>
-            <select id="category" required>
-              <option>交通</option>
-              <option>演唱会</option>
-              <option>购物</option>
-              <option>景点</option>
-              <option>餐饮</option>
-              <option>休息</option>
-              <option>自定义</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="title">标题</label>
-            <input id="title" placeholder="例如：明洞 Olive Young 补货" required>
-          </div>
-          <div class="field">
-            <label for="place">地点</label>
-            <input id="place" placeholder="例如：明洞 / KSPO Dome / 民宿">
-          </div>
-          <div class="field">
-            <label for="route">路线</label>
-            <input id="route" placeholder="例如：地铁 5 号线，45 分钟">
-          </div>
-          <div class="field">
-            <label for="note">备注</label>
-            <textarea id="note" placeholder="门票、退税、预约、想买清单等"></textarea>
-          </div>
-          <div class="form-actions">
-            <button class="btn" type="submit">保存</button>
-            <button class="btn ghost" type="button" id="clearForm">清空</button>
-          </div>
-          <button class="btn warn" type="button" id="resetPlan" style="width: 100%; margin-top: 10px;">恢复默认行程</button>
-        </form>
-
-        <div>
-          <div class="day-tabs" id="dayTabs" aria-label="日期筛选"></div>
-          <div class="timeline" id="timeline"></div>
-        </div>
+        <div class="day-tabs" id="dayTabs" aria-label="日期筛选"></div>
+        <div class="timeline" id="timeline"></div>
       </div>
     </section>
 
@@ -713,7 +570,6 @@
   </footer>
 
   <script>
-    const storageKey = "seoul-twice-itinerary-v4";
     const days = [
       { key: "all", label: "全部" },
       { key: "7.11", label: "7.11 周六" },
@@ -1168,30 +1024,11 @@
       }
     ];
 
-    let items = loadItems();
+    const items = [...defaultItems];
     let activeDay = "all";
 
-    const form = document.querySelector("#planForm");
-    const formTitle = document.querySelector("#formTitle");
     const timeline = document.querySelector("#timeline");
     const dayTabs = document.querySelector("#dayTabs");
-    const clearFormButton = document.querySelector("#clearForm");
-    const resetPlanButton = document.querySelector("#resetPlan");
-
-    function loadItems() {
-      const saved = localStorage.getItem(storageKey);
-      if (!saved) return [...defaultItems];
-      try {
-        const parsed = JSON.parse(saved);
-        return Array.isArray(parsed) ? parsed : [...defaultItems];
-      } catch {
-        return [...defaultItems];
-      }
-    }
-
-    function saveItems() {
-      localStorage.setItem(storageKey, JSON.stringify(items));
-    }
 
     function sortItems(list) {
       return [...list].sort((a, b) => {
@@ -1222,7 +1059,7 @@
       if (visible.length === 0) {
         const empty = document.createElement("article");
         empty.className = "item";
-        empty.innerHTML = '<div class="time">暂无</div><div class="content"><h3>这一天还没有安排</h3><p>用左侧表单添加自己的行程。</p></div>';
+        empty.innerHTML = '<div class="time">暂无</div><div class="content"><h3>这一天还没有安排</h3><p>当前方案没有安排这一日期的行程。</p></div>';
         timeline.appendChild(empty);
         return;
       }
@@ -1241,10 +1078,6 @@
             </div>
             ${item.route ? `<p><strong>路线：</strong>${escapeHtml(item.route)}</p>` : ""}
             ${item.note ? `<p><strong>备注：</strong>${escapeHtml(item.note)}</p>` : ""}
-          </div>
-          <div class="item-actions">
-            <button class="icon-btn" type="button" title="编辑" aria-label="编辑 ${escapeHtml(item.title)}" data-edit="${item.id}">改</button>
-            <button class="icon-btn" type="button" title="删除" aria-label="删除 ${escapeHtml(item.title)}" data-delete="${item.id}">删</button>
           </div>
         `;
         timeline.appendChild(article);
@@ -1265,87 +1098,6 @@
         .replaceAll("'", "&#039;");
     }
 
-    function clearForm() {
-      form.reset();
-      document.querySelector("#itemId").value = "";
-      formTitle.textContent = "新增行程";
-      document.querySelector("#day").value = activeDay === "all" ? "7.11" : activeDay;
-      document.querySelector("#start").focus();
-    }
-
-    function fillForm(item) {
-      document.querySelector("#itemId").value = item.id;
-      document.querySelector("#day").value = item.day;
-      document.querySelector("#start").value = item.start;
-      document.querySelector("#end").value = item.end || "";
-      document.querySelector("#category").value = item.category || "自定义";
-      document.querySelector("#title").value = item.title || "";
-      document.querySelector("#place").value = item.place || "";
-      document.querySelector("#route").value = item.route || "";
-      document.querySelector("#note").value = item.note || "";
-      formTitle.textContent = "编辑行程";
-      window.location.hash = "planner";
-    }
-
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      const id = document.querySelector("#itemId").value || `custom-${Date.now()}`;
-      const next = {
-        id,
-        day: document.querySelector("#day").value,
-        start: document.querySelector("#start").value,
-        end: document.querySelector("#end").value,
-        category: document.querySelector("#category").value,
-        title: document.querySelector("#title").value.trim(),
-        place: document.querySelector("#place").value.trim(),
-        route: document.querySelector("#route").value.trim(),
-        note: document.querySelector("#note").value.trim(),
-        fixed: items.find(item => item.id === id)?.fixed || false
-      };
-
-      items = items.some(item => item.id === id)
-        ? items.map(item => item.id === id ? next : item)
-        : [...items, next];
-      activeDay = next.day;
-      saveItems();
-      render();
-      clearForm();
-    });
-
-    timeline.addEventListener("click", event => {
-      const editId = event.target.dataset.edit;
-      const deleteId = event.target.dataset.delete;
-      if (editId) {
-        const item = items.find(entry => entry.id === editId);
-        if (item) fillForm(item);
-      }
-      if (deleteId) {
-        const item = items.find(entry => entry.id === deleteId);
-        if (!item) return;
-        const message = item.fixed
-          ? "这是既定行程，确定要从页面中删除吗？可用恢复默认行程找回。"
-          : "确定删除这条行程吗？";
-        if (confirm(message)) {
-          items = items.filter(entry => entry.id !== deleteId);
-          saveItems();
-          render();
-        }
-      }
-    });
-
-    clearFormButton.addEventListener("click", clearForm);
-
-    resetPlanButton.addEventListener("click", () => {
-      if (confirm("确定恢复默认行程吗？这会清除你在当前浏览器里添加或修改的内容。")) {
-        items = [...defaultItems];
-        activeDay = "all";
-        saveItems();
-        clearForm();
-        render();
-      }
-    });
-
-    clearForm();
     render();
   </script>
 </body>
